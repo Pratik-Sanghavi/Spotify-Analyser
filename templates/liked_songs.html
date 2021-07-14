@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+      <title>
+        Liked Songs
+      </title>
+   </head>
+   <body>
+      <!-- Navbar here -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Spotify Analyser</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('getTracks')}}">Liked Songs <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=#>Played Today</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            {% if user %}
+              <li class="nav-item">
+                <a class="nav-link" href=#>Welcome {{user}}</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                  <a class="nav-link" href=#>Login</a>
+              </li>
+            {% endif %}
+          </ul> 
+        </div>
+      </nav>
+      <div class="download_csv">
+        <div class="col-md-3"><a href="{{url_for('download_liked_songs')}}"><button class="btn"><i class="fa fa-download"></i> Download CSV</button></a></div>
+      </div>
+      <div class="chartjs-wrapper">
+        <div id="dance">
+        <h5>Danceability Meter</h5>
+        <canvas class="chartjs-gauge-dance" width="1vw"></canvas>
+        </div>
+      </div>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+      <script>
+        const danceability_score = parseFloat("{{dance}}");
+        // Create chart
+        var ctx = document.getElementsByClassName("chartjs-gauge-dance");
+        var chart = new Chart(ctx, {
+            type:"doughnut",
+            data: {
+                labels : ["",""],
+                datasets: [{
+                    label: "Danceability Meter",
+                    data : [Math.round(danceability_score*10000)/100, 100-Math.round(danceability_score*10000)/100],
+                    backgroundColor: [
+                        "rgb(255, 99, 132)",
+                        "rgb(54, 162, 235)",
+                        "rgb(255, 205, 86)"
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                circumference: Math.PI,
+                rotation : Math.PI,
+                cutoutPercentage : 80,
+                legend: {
+                    display: false
+                },
+                tooltips: {
+                    enabled: true
+                }
+            }
+        });
+      </script>
+    </body>
+</html>

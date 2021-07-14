@@ -1,0 +1,9 @@
+flask
+requests
+html5lib
+spotipy
+requests_html
+beautifulsoup4
+youtube_dl
+pathlib
+pandas

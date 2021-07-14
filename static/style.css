@@ -1,0 +1,46 @@
+body            { font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;background-color: #212121;color: white;}
+
+table.dataframe, .dataframe th, .dataframe td {
+  border: white;
+  border-bottom: 1px solid, white;
+  border-collapse: collapse;
+  text-align:left;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: 0.9em;
+}
+
+.df th {
+    background-color: #add8e6;
+    color: white;
+}
+
+tr:nth-child(odd)		{ background-color:#222222; }
+tr:nth-child(even)	{ background-color:#555555; }
+
+tr:hover            { background-color: #aaaaaa;}
+.btn{
+    color:#ffffff;
+    background-color: #0000ff;
+    margin-left: 3rem;
+}
+.download_csv{
+    margin-top: 2rem;
+}
+
+.chartjs-wrapper {
+    margin: 0 auto;
+  }
+
+#dance{
+    margin-left: 3rem;
+    float:left;
+    margin-top: 2rem;
+}
+
+.chartjs-gauge-dance{
+    display: flex;
+    justify-content: flex-start;
+    width: 0.25vw;
+    height: 0.125vw;
+}
