@@ -22,25 +22,32 @@ tr:hover            { background-color: #aaaaaa;}
 .btn{
     color:#ffffff;
     background-color: #0000ff;
-    margin-left: 3rem;
+    margin-left: 0.3rem;
 }
 .download_csv{
     margin-top: 2rem;
 }
 
 .chartjs-wrapper {
-    margin: 0 auto;
+    margin-left: 3rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
 
-#dance{
-    margin-left: 3rem;
-    float:left;
+.chartjs-wrapper > div{
     margin-top: 2rem;
+    border-style: solid;
+    border-color: #aaaaaa;
+    border-width: 1px;
+    padding:0.5rem;
+    margin-right: 3rem;
+    justify-content: center;
+}
+.chartjs-wrapper >div:hover{
+    box-shadow: 3px 3px 3px 3px #aaaaaa;
 }
 
-.chartjs-gauge-dance{
-    display: flex;
-    justify-content: flex-start;
-    width: 0.25vw;
-    height: 0.125vw;
+.chartjs-wrapper>div>canvas{
+    margin-top: 2rem;
 }

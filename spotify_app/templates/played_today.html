@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <link rel=stylesheet type=text/css href="../static/css/style.css">
+      <title>
+        Played Today
+      </title>
+      <link rel="icon" type="image/png" href="../static/images/spotify.png"/>
+   </head>
+   <body>
+      <!-- Navbar here -->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Spotify Analyser</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('getTracks')}}">Liked Songs <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('played_today')}}">Played Today</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            {% if user %}
+              <li class="nav-item">
+                <a class="nav-link" href=#>Welcome {{user}}</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                  <a class="nav-link" href=#>Login</a>
+              </li>
+            {% endif %}
+          </ul> 
+        </div>
+      </nav>
+      <div class="download_csv">
+        <div class="col-md-3"><a href="{{url_for('download_played_today')}}"><button class="btn"><i class="fa fa-download"></i> Download CSV</button></a></div>
+      </div>
+      <div class="chartjs-wrapper">
+        <div id="dance">
+        <h5>Danceability Meter</h5>
+        <canvas class="chartjs-gauge-dance"></canvas>
+        </div>
+        <div id="energy">
+          <h5>Energy Meter</h5>
+          <canvas class="chartjs-gauge-energy"></canvas>
+          </div>
+          <div id="key">
+            <h5>Key Meter</h5>
+            <canvas class="chartjs-gauge-key"></canvas>
+          </div>
+          <div id="speech">
+            <h5>Speechiness Meter</h5>
+            <canvas class="chartjs-gauge-speech"></canvas>
+          </div>
+          <div id="acoustic">
+            <h5>Acousticness Meter</h5>
+            <canvas class="chartjs-gauge-acoustic"></canvas>
+          </div>
+          <div id="instrument">
+            <h5>Instrumentalness Meter</h5>
+            <canvas class="chartjs-gauge-instrument"></canvas>
+          </div>
+          <div id="live">
+            <h5>Liveness Meter</h5>
+            <canvas class="chartjs-gauge-live"></canvas>
+          </div>
+          <div id="valence">
+            <h5>Valence Meter</h5>
+            <canvas class="chartjs-gauge-valence"></canvas>
+          </div>
+          <div id="tempo">
+            <h5>Tempo Meter</h5>
+            <canvas class="chartjs-gauge-tempo"></canvas>
+          </div>
+      </div>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+      <script type="text/javascript">
+         var danceability = parseFloat("{{dance}}");
+         var energy = parseFloat("{{energy}}");
+         var key_mean = parseFloat("{{key_mean}}");
+         var key_max = parseFloat("{{key_max}}");
+         var speech = parseFloat("{{speech}}");
+         var acoustic = parseFloat("{{acoustic}}");
+         var instrument_mean = parseFloat("{{instrument_mean}}");
+         var instrument_max = parseFloat("{{instrument_max}}");
+         var live = parseFloat("{{live}}");
+         var valence = parseFloat("{{valence}}");
+         var tempo_mean = parseFloat("{{tempo_mean}}");
+         var tempo_max = parseFloat("{{tempo_max}}");
+      </script>
+      <script src="../static/js/charter.js"></script>
+    </body>
+</html>
