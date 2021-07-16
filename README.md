@@ -34,6 +34,6 @@ CLIENT_ID = "YOUR CLIENT ID"<br>
 CLIENT_SECRET = "YOUR CLIENT SECRET"<br>
 
 
-That should be sufficient I guess to get the flask application up and running. Do let me know if I need to make any changes/furnish more details<br>
+That should be sufficient I guess to get the flask application up and running (`python run.py`). Do let me know if I need to make any changes/furnish more details<br>
 
 Thanks for reading through!!
