@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-from numpy.lib.npyio import save
 from requests.api import get
 from requests_html import HTMLSession
 import time

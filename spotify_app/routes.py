@@ -5,7 +5,6 @@ import pandas as pd
 import time
 import spotipy
 import datetime
-import threading
 from spotify_app.function_def import create_spotify_oauth, get_liked_songs, create_dataframe, get_token, get_daily_played
 from spotify_app.download_songs import download_from_title
 
