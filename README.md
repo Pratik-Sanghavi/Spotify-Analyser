@@ -29,9 +29,9 @@ Next time venv please!!! (Let me know if there's any other dependency)
 ## II) Setting up
 1. Register on Spotify Developers and create an app to get client id and client secret. 
 2. In edit settings on spotify developer dashboard page, fill in redirect uri as `http://127.0.0.1:5000/redirect`
-3. Create a .env file in spotify_app folder and add:
-CLIENT_ID = "YOUR CLIENT ID"
-CLIENT_SECRET = "YOUR CLIENT SECRET"
-That should be sufficient I guess to get the flask application up and running. Do let me know if I need to make any changes/furnish more details
+3. Create a .env file in spotify_app folder and add:<br>
+CLIENT_ID = "YOUR CLIENT ID"<br>
+CLIENT_SECRET = "YOUR CLIENT SECRET"<br>
+That should be sufficient I guess to get the flask application up and running. Do let me know if I need to make any changes/furnish more details<br>
 
 Thanks for reading through!!
