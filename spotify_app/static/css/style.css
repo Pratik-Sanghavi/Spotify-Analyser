@@ -22,10 +22,14 @@ tr:hover            { background-color: #aaaaaa;}
 .btn{
     color:#ffffff;
     background-color: #0000ff;
-    margin-left: 0.3rem;
+    margin-left: 3rem;
 }
 .download_csv{
     margin-top: 2rem;
+}
+.download_song{
+    margin-top: 2rem;
+    margin-left: 3rem;
 }
 
 .chartjs-wrapper {

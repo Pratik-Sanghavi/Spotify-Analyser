@@ -44,6 +44,20 @@
       <div class="download_csv">
         <div class="col-md-3"><a href="{{url_for('download_liked_songs')}}"><button class="btn"><i class="fa fa-download"></i> Download CSV</button></a></div>
       </div>
+
+      <div class="download_song">
+        <h5>Download Song</h5>
+      <form action="{{url_for('download_liked_song_file')}}" method = "POST">
+        <select class="form-select" aria-label="Default select example" name="get_song">
+          <option selected>Select Track</option>
+          {% for track in track_names %}
+            <option value="{{loop.index0}}">{{loop.index0 + 1}}. {{track}}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-secondary">Download</button>
+      </form>
+      </div>
+
       <div class="chartjs-wrapper">
         <div id="dance">
         <h5>Danceability Meter</h5>

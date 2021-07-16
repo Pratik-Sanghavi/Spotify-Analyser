@@ -5,7 +5,9 @@ import pandas as pd
 import time
 import spotipy
 import datetime
+import threading
 from spotify_app.function_def import create_spotify_oauth, get_liked_songs, create_dataframe, get_token, get_daily_played
+from spotify_app.download_songs import download_from_title
 
 @app.route('/')
 @app.route('/home')
@@ -38,10 +40,10 @@ def getTracks():
     if not os.path.exists("./Data"):
         os.makedirs("./Data")
     df.to_csv('./Data/liked_songs.csv', index=False)
-    # sample_data = df.sample(n=10)
-
+    track_names = list(df.Track_Name.unique())
     return render_template('liked_songs.html', 
                             user = str(clientid),
+                            track_names=track_names,
                             dance = str(df['Danceability'].mean()),
                             energy = str(df['Energy'].mean()),
                             key_mean = str(df['Key'].mean()),
@@ -63,11 +65,33 @@ def download_liked_songs():
                      attachment_filename='liked_songs.csv',
                      as_attachment=True)
 
+@app.route('/download_liked_song_file', methods=['GET', 'POST'])
+def download_liked_song_file():
+    index = int(request.form['get_song'])
+    df = pd.read_csv('./Data/liked_songs.csv')
+    track_names = list(df.Track_Name.unique())
+    song_download = track_names[index]
+    download_from_title(song_download)
+    song_name = os.listdir('./Songs/')
+    return send_file(f'../Songs/{song_name[0]}',
+                     as_attachment=True)
+
 @app.route('/download_played_today')
 def download_played_today():
     return send_file('../Data/played_today.csv',
                      mimetype='text/csv',
                      attachment_filename='played_today.csv',
+                     as_attachment=True)
+
+@app.route('/download_played_today_file', methods=['GET', 'POST'])
+def download_played_today_file():
+    index = int(request.form['get_song'])
+    df = pd.read_csv('./Data/played_today.csv')
+    track_names = list(df.Track_Name.unique())
+    song_download = track_names[index]
+    download_from_title(song_download)
+    song_name = os.listdir('./Songs/')
+    return send_file(f'../Songs/{song_name[0]}',
                      as_attachment=True)
 
 @app.route('/played_today')
@@ -83,9 +107,11 @@ def played_today():
     df['Played_On'] = pd.to_datetime(df['Played_On'])
     df = df[df.Played_On.dt.date == datetime.date.today()]
     df.to_csv('./Data/played_today.csv', index=False)
-    
+    # load_titles(caller=1)
+    track_names = list(df.Track_Name.unique())
     return render_template('played_today.html', 
                             user = str(clientid),
+                            track_names=track_names,
                             dance = str(df['Danceability'].mean()),
                             energy = str(df['Energy'].mean()),
                             key_mean = str(df['Key'].mean()),
