@@ -1,5 +1,5 @@
 # Spotify-Analyser
-A basic flask web application to display user's liked songs features, download liked songs' csv, download daily played history, graphs displaying daily played songs features, etc. User can select and download mp3 file of songs liked/played today.
+A basic flask web application to display user's liked songs features, download liked songs' csv, download daily played history, graphs displaying daily played songs features, etc. User can select and download mp3 file of songs liked/played today (a bit glitchy though-I apologise!!😅).
 
 ## I) Dependencies:-
 1. Flask<br>
