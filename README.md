@@ -25,7 +25,7 @@ Download chrome webdriver [here](https://chromedriver.chromium.org/downloads) an
 Download youtube_dl [here](https://github.com/ytdl-org/youtube-dl) and add youtube_dl.exe(in bin) to PATH (System variable)<br>
 `pip install youtube_dl`
 11. dotenv <br>
-`pip install dotenv`
+`pip install python-dotenv`
 
 Next time venv please!!! (Let me know if there's any other dependency)
 
