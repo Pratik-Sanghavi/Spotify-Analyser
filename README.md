@@ -1,5 +1,6 @@
 # Spotify-Analyser
-A basic flask web application to display user's liked songs features, download liked songs' csv, download daily played history, graphs displaying daily played songs features, etc. User can select and download mp3 file of songs liked/played today.
+A basic flask web application to display user's liked songs features, download liked songs' csv, download daily played history, graphs displaying daily played songs features, etc. User can select and download mp3 file of songs liked/played today (a bit glitchy though-I apologise!!😅).
+Note:- For songs played today, only the most recent 50 songs are supported currently. I'm trying to figure out how I could incorporate songs beyond that. Do let me know if you figure something out (Thanks!)
 
 ## I) Dependencies:-
 1. Flask<br>
@@ -23,6 +24,8 @@ Download chrome webdriver [here](https://chromedriver.chromium.org/downloads) an
 10. youtube_dl<br>
 Download youtube_dl [here](https://github.com/ytdl-org/youtube-dl) and add youtube_dl.exe(in bin) to PATH (System variable)<br>
 `pip install youtube_dl`
+11. dotenv <br>
+`pip install python-dotenv`
 
 Next time venv please!!! (Let me know if there's any other dependency)
 
@@ -34,6 +37,6 @@ CLIENT_ID = "YOUR CLIENT ID"<br>
 CLIENT_SECRET = "YOUR CLIENT SECRET"<br>
 
 
-That should be sufficient I guess to get the flask application up and running. Do let me know if I need to make any changes/furnish more details<br>
+That should be sufficient I guess to get the flask application up and running (`python run.py`). Do let me know if I need to make any changes/furnish more details<br>
 
 Thanks for reading through!!
