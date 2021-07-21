@@ -15,9 +15,9 @@ requires = [
 setup(
     name='SpotifyToYoutubeMP3',
     version='1.0',
-    description='An application that gets your Spotify songs and downloads the YoutubeMP3 version',
-    author='Jason',
-    author_email='jasongoodisondevelopment@gmail.com',
+    description='An application that gets your spotify songs and displays relevant statistics and also lets you download the songs in mp3 format',
+    author='Pratik',
+    author_email='sanghavipratikr@gmail.com',
     keywords='web flask',
     packages=find_packages(),
     include_package_data=True,

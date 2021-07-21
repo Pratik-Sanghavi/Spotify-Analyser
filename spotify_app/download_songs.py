@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from requests.api import get
-from requests_html import HTMLSession
+# from requests_html import HTMLSession
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
