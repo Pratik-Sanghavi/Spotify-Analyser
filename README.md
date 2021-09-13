@@ -39,4 +39,7 @@ CLIENT_SECRET = "YOUR CLIENT SECRET"<br>
 
 That should be sufficient I guess to get the flask application up and running (`python run.py`). Do let me know if I need to make any changes/furnish more details<br>
 
+## III) Additional features planned
+Initially I had intended this web application to serve as some sort of indicator of my mood. For this, what we can do is that every time I hear a new song, I can implement a form on the Daily Played page to make note of the mood I am in. This we can use to train a classifier to generate a color depending on my mood.
+
 Thanks for reading through!!
