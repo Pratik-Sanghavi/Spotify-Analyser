@@ -1,6 +1,0 @@
-setup.py
-SpotifyToYoutubeMP3.egg-info/PKG-INFO
-SpotifyToYoutubeMP3.egg-info/SOURCES.txt
-SpotifyToYoutubeMP3.egg-info/dependency_links.txt
-SpotifyToYoutubeMP3.egg-info/requires.txt
-SpotifyToYoutubeMP3.egg-info/top_level.txt
